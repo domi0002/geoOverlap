@@ -1,5 +1,5 @@
 # geoOverlap
- 1D Overset with OpenFOAM
+ 1D Overset with OpenFOAM - tested with OpenFOAM-v1812
 
 
 Case Directory
