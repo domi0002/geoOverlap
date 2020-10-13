@@ -1,0 +1,41 @@
+NLIB            = itsol
+LIB_SUFFIX      = .a
+
+CPP	            = @CPP@
+CPPFLAGS        = @CPPFLAGS@
+
+CC              = @CC@
+CFLAGS          = @CFLAGS@
+
+FC              = @FC@
+FCFLAGS         = @FCFLAGS@
+FCLIBS          = @FCLIBS@
+
+LINKER          = @LINKER@
+LDFLAGS         = @LDFLAGS@
+LIBS            = @LIBS@
+
+AR              = @AR@
+RANLIB          = @RANLIB@
+
+prefix		= @prefix@
+libdir      = @prefix@/lib
+includedir  = @prefix@/include
+RPATH_FLAG	= @RPATH_FLAG@
+
+%.o : %.c
+	${CC} ${CFLAGS} ${CPPFLAGS} -c $*.c
+	@echo
+
+%.o : %.f
+	${FC} ${FCFLAGS} -c $*.f
+	@echo
+
+% : %.o
+	${LINKER} ${LDFLAGS} -o $@ $*.o ${LIBS}
+	@echo
+
+% : %.c
+	${LINKER} ${LDFLAGS} ${CFLAGS} ${CPPFLAGS} -c $*.c ${LIBS}
+	@echo
+
