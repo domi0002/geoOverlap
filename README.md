@@ -5,7 +5,9 @@
 External Dependencies(included)
 -------------------------------
 Octree search: https://github.com/jbehley/octree  (No compilation required)
+
 sparseMatrix: https://github.com/uestla/Sparse-Matrix (OpenFOAM based compilation required inside folder sparseMatrix)
+
 itsol:https://github.com/huiscliu/itsol (standard compilation required inside folder itsol-master)
  
 Case Directory
