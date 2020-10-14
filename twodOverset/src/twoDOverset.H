@@ -330,9 +330,32 @@ class overlap
             }
         }
     }
-    
-    
-    
+
+
+    inline void getInterpolationWeightsRBF(const dynamicFvMesh & donorMesh, volScalarField & donorBlanks)
+    {
+        forAll(mesh().C(),i)
+        {
+            if ( donorCells[i] >=0 )
+            {
+                iweights[i].resize(donorCellCells[i].size());
+                iweights[i]=0.0;
+                scalar sumWeights=0.0;
+
+		double *xcloud;
+		xcloud=new double[donorCellCells[i].size()*2];
+		for(int j=0;j<donorCellCells[i].size();j++) 
+		  {
+		    xcloud[2*j  ]=donorMesh.C()[donorCells[i][j]].x();
+		    xcloud[2*j+1]=donorMesh.C()[donorCells[i][j]].y();
+		  }
+		double P[2]={mesh().C()[i].x(),mesh(),C()[i].y()};
+		d_interprbf(xcloud,P,iweights[i],donorCellCells[i].size(),2);
+		free(xcloud);
+	    }
+	}
+    }
+        
     
     inline void finalizeClassification(const dynamicFvMesh & donorMesh, const overlap* donorConnect, const volScalarField & cellmanager)
     {
