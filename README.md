@@ -38,10 +38,15 @@ Various options are as follows:
 
 -neumannrhs:  Solve using Neumann BCs on left and top boundaries (You also need to change the 0/T files appropriately). The default option in 0/ folder is the Neumann BCs.
 
--inv:         Use inverse distance interpolation instead of polynomial interpolation.
+-inv       :  Use inverse distance interpolation instead of polynomial interpolation.
+
+-rbf       :  Use RBF 2nd order interpolation
 
 -cons      :  Activate conservative correction
 
+
+Since the default BCs are already Partly Neumann, to execute the code (using RBF):
+twoDOverset  -neumannrhs -rbf
 
 Outputs
 -------
