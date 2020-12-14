@@ -27,7 +27,7 @@
   School of Mechanical and Aerospace Engineering
   
   d.chandar@qub.ac.uk, dominic.chandar@gmail.com
-  https://github.com/domi0002/geoOverlap/cfaOverset
+  https://github.com/domi0002/geoOverlap
   
   For issues refer to the above GitHub page.
 
@@ -57,6 +57,12 @@ int main(int argc, char *argv[])
         "Inverse Distance Interpolation"
     );
     
+	argList::addBoolOption
+    (
+        "rbf",
+        "Inverse Distance Interpolation"
+    );
+	
     argList::addBoolOption
     (
         "neumannrhs",
@@ -85,6 +91,16 @@ int main(int argc, char *argv[])
         // Update moving mesh (moving regions activated in constant/region<x>/dynamicMeshDict)
         oSolver.updateMovingMesh();
         
+		// Hardcode for now (I need 9 donor cells for a given receiver in 2D)
+		if ( args.found("rbf") )
+		{
+			oSolver.RBFPoints = 9;
+		}
+		else
+		{
+			oSolver.RBFPoints = 0;
+		}
+		
         // Calculate overlap (needs to be called again for moving meshes)
         oSolver.preProcessAndCompute();
     
@@ -93,7 +109,11 @@ int main(int argc, char *argv[])
         {
             oSolver.distanceWeightedWeights();
         }
-        else
+        else if ( args.found("rbf") )
+        {
+            oSolver.rbfWeights();
+        }
+		else
         {
             oSolver.polynomialWeights();
         }
