@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+application     simpleFoamCons;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         2000;
+
+deltaT          1;
+
+writeControl    runTime;
+
+writeInterval   2000;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  10;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+
+DebugSwitches
+{
+	dimensionSet	0;
+}
+
+
+functions
+{
+
+streamFunction1
+{
+    // Mandatory entries
+    type            streamFunction;
+    libs            ("libfieldFunctionObjects.so");
+
+    // Optional (inherited) entries
+    field           phi;
+    result          streamFunc;
+    region          region1 ;
+    enabled         true;
+    log             true;
+    timeStart       0.1;
+    timeEnd         1000;
+    executeControl  timeStep;
+    executeInterval 5;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+streamFunction2
+{
+    // Mandatory entries
+    type            streamFunction;
+    libs            ("libfieldFunctionObjects.so");
+
+    // Optional (inherited) entries
+    field           phi;
+    result          streamFunc;
+    region          region2 ;
+    enabled         true;
+    log             true;
+    timeStart       0.1;
+    timeEnd         1000;
+    executeControl  timeStep;
+    executeInterval 5;
+    writeControl    writeTime;
+    writeInterval   -1;
+}
+
+
+}
+
+
+
+// ************************************************************************* //

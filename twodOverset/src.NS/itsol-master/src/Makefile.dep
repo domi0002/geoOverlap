@@ -1,0 +1,31 @@
+
+
+indset.o: indset.c ../include/config.h ../include/data-types.h ../include/indset.h ../include/protos-deps.h ../include/utils.h
+
+itsol.o: itsol.c ../include/config.h ../include/data-types.h ../include/indset.h ../include/itsol.h ../include/mat-utils.h ../include/pc-arms2.h ../include/pc-iluk.h ../include/pc-ilutc.h ../include/pc-ilut.h ../include/pc-ilutpc.h ../include/pc-pilu.h ../include/pc-vbiluk.h ../include/pc-vbilut.h ../include/protos-deps.h ../include/solver-bicgstab.h ../include/solver-bicgstabl.h ../include/solver-fgmres.h ../include/utils.h
+
+mat-utils.o: mat-utils.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/protos-deps.h ../include/utils.h
+
+pc-arms2.o: pc-arms2.c ../include/config.h ../include/data-types.h ../include/indset.h ../include/mat-utils.h ../include/pc-arms2.h ../include/pc-ilutpc.h ../include/pc-pilu.h ../include/protos-deps.h ../include/utils.h
+
+pc-iluk.o: pc-iluk.c ../include/config.h ../include/data-types.h ../include/pc-iluk.h ../include/protos-deps.h ../include/utils.h
+
+pc-ilut.o: pc-ilut.c ../include/config.h ../include/data-types.h ../include/pc-ilut.h ../include/protos-deps.h ../include/utils.h
+
+pc-ilutc.o: pc-ilutc.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/pc-ilutc.h ../include/protos-deps.h ../include/utils.h
+
+pc-ilutpc.o: pc-ilutpc.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/pc-ilutpc.h ../include/protos-deps.h ../include/utils.h
+
+pc-pilu.o: pc-pilu.c ../include/config.h ../include/data-types.h ../include/pc-pilu.h ../include/protos-deps.h ../include/utils.h
+
+pc-vbiluk.o: pc-vbiluk.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/pc-vbiluk.h ../include/protos-deps.h ../include/utils.h
+
+pc-vbilut.o: pc-vbilut.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/pc-vbilut.h ../include/protos-deps.h ../include/utils.h
+
+solver-bicgstab.o: solver-bicgstab.c ../include/config.h ../include/data-types.h ../include/protos-deps.h ../include/solver-bicgstab.h ../include/utils.h
+
+solver-bicgstabl.o: solver-bicgstabl.c ../include/config.h ../include/data-types.h ../include/mat-utils.h ../include/protos-deps.h ../include/solver-bicgstabl.h ../include/utils.h
+
+solver-fgmres.o: solver-fgmres.c ../include/config.h ../include/data-types.h ../include/protos-deps.h ../include/solver-fgmres.h ../include/utils.h
+
+utils.o: utils.c ../include/config.h ../include/data-types.h ../include/protos-deps.h ../include/utils.h
